@@ -3,9 +3,9 @@ The app will gather &amp; store news CSVs for further analysis.
 
 # Introduction
 
-This API receives GET requests that trigger pulling from [newsapi](https://newsapi.org/). The returned JSON is then written to csv files that are uploaded to an object storage bucket. The upload to the bucket is done by triggering an OCI-CLI shell script (newsupload & sourceupload). Lastly, the endpoint then deletes the csv files from local storage. 
+This API, app.py, receives GET requests that trigger pulling from [newsapi](https://newsapi.org/). The returned JSON is then written to csv files that are uploaded to an object storage bucket. The upload to the bucket is done by triggering an OCI-CLI shell script (newsupload & sourceupload). Lastly, the endpoint then deletes the csv files from local storage. 
 
-This README also provides a 'Deployment Architecture', similar to a workshop, but with directions allowing for more general replication over a longer period. 
+This README also provides a 'Deployment Architecture', similar to a workshop. Different steps provide directions allowing for more general 'choose-your-own-adventure' implementation.
 
 After building the [HubsterDB Flask API](https://github.com/GaryHostt/HubsterDatabase) in 2019, it's time to user containers so that I can deploy it on kubernetes instead of compute. 
 
@@ -13,27 +13,44 @@ After building the [HubsterDB Flask API](https://github.com/GaryHostt/HubsterDat
 
 # Pre-requisites
 
-To begin developing on your macine, the Oracle CLI and docker should both be installed, because the sh scripts in the repo rely upon this. Though, you could also implement this with the OCI Python SDK. You also have a working dockerfile & requirements.txt for the docker container. If not, start with step 0(a). 
+### OCI CLI & docker
+To begin developing on your macine, the [Oracle CLI](https://docs.cloud.oracle.com/en-us/iaas/Content/API/SDKDocs/cliinstall.htm) and [docker](https://docs.docker.com/install/) should both be installed, because the sh scripts in the repo rely upon this. Though, you could also implement this with the OCI Python SDK. You also have a working dockerfile & requirements.txt for the docker container. If not, start with step 0(a). 
 
+### Existing flask API
 You have an existing flask API with secret management similar to mine. A file just named 'apikey' that contains your newsapi.org key. Inspired by this [implementation](https://github.com/dylburger/reading-api-key-from-file/blob/master/Keeping%20API%20Keys%20Secret.ipynb). 
 
-You have a cron job of some sort that can hit this API. After building the [DailyFrenchNewsTexter](https://github.com/GaryHostt/DailyNewsText), I made a new GO cron app. This also needed to be containerized.
+### Cron job
+You have a cron job of some sort that can hit this API. After building the [DailyFrenchNewsTexter](https://github.com/GaryHostt/DailyNewsText), I made a new GO cron app that will hit my /api/news/csv endpoint once a day to generate my CSVs. This also needed to be containerized because it is [not recommended](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#each-container-should-have-only-one-concern) to run 2 different languages in one container, not because it can't be done, but architecturally each container should only have one conern.
 
-For laters labs & use of various services, consolidated [background info is here](https://github.com/GaryHostt/OCI_DevOps).
+### Optional: Configure email notification after CSV uploaded to bucket
 
-# Outline
+Rather than implementing that in your API or cron code, [OCI can take care of notifying you](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab100.md).
 
-0(a): containerization
+# Outline & ToDo List
 
-0(b): go cron job
+0: Flask API Containerization
 
-1: upload containers to OCIR
+1: upload containers to OCIR [verify directions]
 
-2: create k8 cluster (link to 400 & main lab in it)
+2: create k8 cluster & deploy pod [create directions]
 
-3: put behind APIGW
+3: put API behind APIGW [link][screen if add auth]
 
-# Deployment Outline
+4: put Health check on APIGW [screen]
+
+implement:
+ci/cd
+cron container, repo, link
+
+Workshop Roadmap:
+Part 2: Data catalog & data science - per pap not
+
+Far road map:
+
+Part X: deploy on compute
+diff md
+
+# Deployment
 
 # Step 0: How to containerize your Python API.
 
@@ -78,19 +95,27 @@ You can also [implement CI/CD in this process](https://blogs.oracle.com/shay/aut
 
 # Step 2: Deploying your container
 
-To begin you'll need the infrastructre, you can get started [deploying nodes on OKE here](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab400.md)
+To begin you'll need the infrastructure, you can get started [deploying nodes on OKE here](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab400.md)
 
-After spinning up OKE, you will need to [pull your dockerfile from the registry](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengpullingimagesfromocir.htm?tocpath=Services%7CContainer%20Engine%7C_____12) to your OKE cluster. This[OKE & Registry lab](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-and-registry/index.html) can provide more context.
+After spinning up OKE, you will need to [pull your dockerfile from the registry](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengpullingimagesfromocir.htm?tocpath=Services%7CContainer%20Engine%7C_____12) to your OKE cluster. This [OKE & Registry lab](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-and-registry/index.html) can provide more context.
 
 
 # Troubleshooting
 
-[How to activate/deactivate your Python virtualenv](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)
+[How to activate/deactivate](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)  your Python virtualenv
 
 [Managing docker images & containers](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 # Other Resources
 
 The gold-standard cloud native app for OCI is of course, [MuShop](https://github.com/oracle-quickstart/oci-cloudnative).
+
+# Life after Cloud
+
+<p align="center">
+  <img src="https://github.com/GaryHostt/OCI_Native_NewsApp/blob/master/markdown/screenshots/1.jpg?raw=true" alt="comic"/>
+</p> 
+
+[Source](http://www.commitstrip.com/en/2019/01/08/the-cloud-at-last/)
 
 
