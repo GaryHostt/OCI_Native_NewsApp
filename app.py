@@ -160,9 +160,9 @@ def getNews():
 	credentials(filename)
 	api_key = credentials(filename)
 	print("Our API key is: %s" % (api_key))
-	url = "https://newsapi.org/v2/top-headlines?language=en&api_key=edf162b96b7c4feaad81082c4e685481"
+	url = "https://newsapi.org/v2/top-headlines?language=en"
 	headers = {
-	  'X-Api-Key': 'edf162b96b7c4feaad81082c4e685481',
+	  'X-Api-Key': api_key,
 	  'Content-Type': 'multipart/form-data; boundary=--------------------------994416873992670733558445'
 	}
 	r = requests.request("GET", url, headers=headers)
