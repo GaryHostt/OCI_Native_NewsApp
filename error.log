@@ -1,2 +1,13 @@
 DEBUG:root:This message should go to the log file
 INFO:werkzeug:127.0.0.1 - - [02/Mar/2020 20:14:48] "[37mGET /api/news/csv HTTP/1.1[0m" 200 -
+DEBUG:root:This message should go to the log file
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2020 20:55:18] "[37mGET /api/news/csv HTTP/1.1[0m" 200 -
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool:https://newsapi.org:443 "GET /v2/sources?language=en HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): newsapi.org:443
+DEBUG:urllib3.connectionpool:https://newsapi.org:443 "GET /v2/sources?language=en HTTP/1.1" 200 None
+DEBUG:root:This message should go to the log file
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2020 20:55:24] "[1m[35mGET /api/sources/csv HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/aamacdon/Desktop/n3ws/3flask/news_docker_flask_api/app.py', reloading
+DEBUG:root:This message should go to the log file
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2020 20:56:34] "[37mGET /api/sources/csv HTTP/1.1[0m" 200 -

@@ -15,6 +15,7 @@ import subprocess
 from subprocess import call
 import glob
 import time
+from fromFile import hello
 
 # one day separte different functions like fromFile & hello()
 #handle api key in getNews() & getSources() with variable
@@ -71,7 +72,7 @@ def credentials(filename):
         print("'%s' file not found" % filename)
 
 def deleteSourceFiles():
-	os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
+	#os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
 	print(os.getcwd())
 	print(os.listdir())
 	cat1=(os.getcwd())
@@ -89,7 +90,7 @@ def deleteSourceFiles():
 	print('here3')
 
 def deleteNewsFiles():
-	os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
+	#os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
 	print(os.getcwd())
 	print(os.listdir())
 	cat1=(os.getcwd())
@@ -144,10 +145,9 @@ def writeSourceCSV():
 	logging.basicConfig(filename='error.log',level=logging.DEBUG)
 	logging.debug('This message should go to the log file')
 	print(localtime)
-	hello()
 
 def uploadSources():
-	os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
+	#os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
 	print(os.getcwd())
 	#modifyPermissions = os.system("chmod a+x newsupload.sh")
 	#for running shell scripts if getting denied
@@ -196,7 +196,9 @@ def writeNewsCSV():
 		# hello for practicing with "from fromFile import hello"
 
 def uploadNews():
-	os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
+	barf=os.getcwd()
+	print(barf)
+	#os.chdir("/Users/aamacdon/Desktop/n3ws/3flask")
 	print(os.getcwd())
 	lol2=(os.listdir())
 	rc = subprocess.call("./newsupload.sh", shell=True)
