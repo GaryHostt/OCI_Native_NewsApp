@@ -1,0 +1,2 @@
+DEBUG:root:This message should go to the log file
+INFO:werkzeug:127.0.0.1 - - [02/Mar/2020 20:14:48] "[37mGET /api/news/csv HTTP/1.1[0m" 200 -

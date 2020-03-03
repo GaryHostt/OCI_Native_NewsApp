@@ -1,0 +1,1 @@
+ oci os object put -bn sourceLogs --file Source*.csv
