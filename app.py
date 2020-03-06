@@ -135,7 +135,7 @@ def writeSourceCSV():
 	i=0
 	localtime = datetime.now()
 	filename = 'Sourceslogs-'+str(localtime)+'.csv'
-	with open(filename,'a', newline='') as csvfile:
+	with open(filename,'w', newline='') as csvfile:
 		newslist = csv.writer(csvfile, delimiter=' ')
 		newslist.writerow([sources[i]])
 		for row in myData:
@@ -183,7 +183,7 @@ def writeNewsCSV():
 	i=0
 	localtime = datetime.now()
 	filename = 'Newslogs-'+str(localtime)+'.csv'
-	with open(filename,'a', newline='') as csvfile:
+	with open(filename,'w', newline='') as csvfile:
 		newsCSV = csv.writer(csvfile, delimiter=' ')
 		newsCSV.writerow([articles[i]])
 		for row in myData:
