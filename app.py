@@ -43,6 +43,9 @@ def getInfo2():
 		writeNewsCSV()
 		uploadNews()
 		deleteNewsFiles()
+		writeSourceCSV()
+		uploadSources()
+		deleteSourceFiles()
 		return jsonify(status='success')
 
 @app.route('/api/sources', methods=['GET'])
