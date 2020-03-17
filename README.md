@@ -87,16 +87,13 @@ docker run -d -p 80:80 OCI_Native_NewsApp:latest
 docker ps
 docker stop 145a2527107d3
 ```
+# Step 1: Deployment 
 
-# Route 1: Deploy your container 
-
-## Upload your docker image to OCIR
+## Route 1: Upload your image to OCIR & Deploy your container 
 
 Even though you have the OCI CLI configured, you need to configure your command line to interact with Oracle Container Repository. [This documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Tasks/registrypushingimagesusingthedockercli.htm) will show that and how to upload your image to the OCIR. [This workshop](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html) provides extra screenshots for this process.
 
 You can also [implement CI/CD in this process](https://blogs.oracle.com/shay/automating-cicd-for-docker-with-oracle-cloud-infrastructure-registry-and-developer-cloud-service).
-
-## Deploying your container
 
 To begin you'll need the infrastructure, you can get started [deploying nodes on OKE here](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab400.md)
 
@@ -143,6 +140,16 @@ The & at the end runs the program in the background, so that it
 doesn't block your terminal. The "nohup" bit makes the program "safe"
 when your terminal hangs-up - i.e it carries on running - by default
 the output of the program gets put into a file "nohup.out”.
+
+# Step 2: Data Management
+
+I use Data Catalog to record where I'm storing the CSVs for my project. First I had to [connect Data Catalog to object storage](https://docs.cloud.oracle.com/en-us/iaas/data-catalog/data-catalog-tutorial/tutorials/harvest-object-storage.htm).
+
+I also use data catalog to record data locataions other projects I've made, such as my ATP database. 
+
+Click here to get started with [Data Catalog](https://docs.cloud.oracle.com/en-us/iaas/data-catalog/using/index.htm).
+
+
 
 # Troubleshooting
 
