@@ -126,7 +126,7 @@ git push origin cloudCompute
 nohup python3 app.py &
 nohup go run chronAPI.go &
 
-##Turn off API & cron job
+## Turn off API & cron job
 ps -ef | grep python
 ps -ef | grep go
 Kill #
