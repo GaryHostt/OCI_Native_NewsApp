@@ -87,18 +87,23 @@ docker ps
 docker stop 145a2527107d3
 ```
 
-# Step 1: Upload your docker image to OCIR
+# Route 1: Deploy your container 
+
+## Upload your docker image to OCIR
 
 Even though you have the OCI CLI configured, you need to configure your command line to interact with Oracle Container Repository. [This documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Tasks/registrypushingimagesusingthedockercli.htm) will show that and how to upload your image to the OCIR. [This workshop](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/registry/index.html) provides extra screenshots for this process.
 
 You can also [implement CI/CD in this process](https://blogs.oracle.com/shay/automating-cicd-for-docker-with-oracle-cloud-infrastructure-registry-and-developer-cloud-service).
 
-# Step 2: Deploying your container
+## Deploying your container
 
 To begin you'll need the infrastructure, you can get started [deploying nodes on OKE here](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab400.md)
 
 After spinning up OKE, you will need to [pull your dockerfile from the registry](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengpullingimagesfromocir.htm?tocpath=Services%7CContainer%20Engine%7C_____12) to your OKE cluster. This [OKE & Registry lab](https://www.oracle.com/webfolder/technetwork/tutorials/obe/oci/oke-and-registry/index.html) can provide more context.
 
+## Route 2: Run your apps natively in the Linux machine or on docker there
+
+This may be the simpler and more familiar deploying method, especially for non-production instances.
 
 # Troubleshooting
 
