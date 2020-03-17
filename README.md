@@ -149,7 +149,7 @@ I also use data catalog to record data locataions other projects I've made, such
 
 Click here to get started with [Data Catalog](https://docs.cloud.oracle.com/en-us/iaas/data-catalog/using/index.htm).
 
-
+I can also query the CSV files stored in object storage from my ATP database with an [external table](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/query-external-data.html#GUID-72DC8BB6-5245-4262-A100-C35A2E553F70).
 
 # Troubleshooting
 
