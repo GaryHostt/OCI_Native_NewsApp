@@ -153,6 +153,14 @@ View this slide deck to understand the business value of [data catalog](https://
 
 I can also query the CSV files stored in object storage from my ATP database with an [external table](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/query-external-data.html#GUID-72DC8BB6-5245-4262-A100-C35A2E553F70).
 
+I can also [load this data directly into the Autonomous Database from Object storage](http://cloud-blogs.com/oracle-cloud/oracle-cloud-iaas/comprehensive-blog-on-autonomous-data-warehouse-and-analytics-cloud/04-load-data-into-oci-object-storage-and-import-that-data-into-autonomous-data-warehouse/).
+
+# Administration
+
+We need also consider disaster recovery. This can be done using [rsync.](https://www.vultr.com/docs/setup-file-mirroring-using-rsync-in-debian-ubuntu)
+
+You can also configure your OCI tenancy for MFA for greater security [here](https://k21academy.com/oracle-identity-manager-identity/idcs/oracle-identity-cloud-service-configuring-multi-factor-authentication-mfa/) or [here](https://docs.oracle.com/en/cloud/paas/identity-cloud/uaids/configure-multi-factor-authentication-settings.html).
+
 # Troubleshooting
 
 [How to activate/deactivate](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)  your Python virtualenv
