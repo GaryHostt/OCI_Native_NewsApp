@@ -104,7 +104,45 @@ After spinning up OKE, you will need to [pull your dockerfile from the registry]
 
 ## Route 2: Run your apps natively in the Linux machine or on docker there
 
-This may be the simpler and more familiar deploying method, especially for non-production instances.
+This may be the simpler and more familiar deploying method, especially for non-production instances. In this case, it allows my GO cron job to call my API just by hitting localhost/0.0.0.0. 
+
+The following are useful commands I've found for running apps on my VM.
+
+```
+Deploy container on cloud or local
+1. docker build -t oci_native_newsapp:latest .
+2. docker run -d -p 80:80 oci_native_newsapp:latest
+3. Docker ps
+4. Docker stop 145c635425d3
+
+## Push local dev to master
+git add .
+git commit -m "removed logs"
+git push origin master
+
+## I created a new branch, cloudCompute, for the deployment in the cloud
+Git add .
+Git commit -m “xx”
+git push origin cloudCompute
+
+## Run API and cron job
+nohup python3 app.py &
+nohup go run chronAPI.go &
+
+##Turn off API & cron job
+ps -ef | grep python
+ps -ef | grep go
+Kill #
+```
+
+### What do nohup and & do? 
+
+From [stackoverflow](
+https://stackoverflow.com/questions/12486691/how-do-i-get-my-golang-web-server-to-run-in-the-background/):
+The & at the end runs the program in the background, so that it
+doesn't block your terminal. The "nohup" bit makes the program "safe"
+when your terminal hangs-up - i.e it carries on running - by default
+the output of the program gets put into a file "nohup.out”.
 
 # Troubleshooting
 
