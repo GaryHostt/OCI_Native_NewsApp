@@ -1,4 +1,4 @@
-# OCI Native NewsApp - Part 1
+# OCI Native NewsApp
 The app will gather &amp; store news CSVs for further analysis.
 
 # Introduction
@@ -22,6 +22,8 @@ You have an existing flask API with secret management similar to mine. A file ju
 ### Cron job
 You have a cron job of some sort that can hit this API. After building the [DailyFrenchNewsTexter](https://github.com/GaryHostt/DailyNewsText), I made a new GO cron app that will hit my /api/news/csv endpoint once a day to generate my CSVs. This also needed to be containerized because it is [not recommended](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#each-container-should-have-only-one-concern) to run 2 different languages in one container, not because it can't be done, but architecturally each container should only have one conern.
 
+[Click here to see the cron job that calls this API.](https://github.com/GaryHostt/GoChronCall)
+
 ### Optional: Configure email notification after CSV uploaded to bucket
 
 Rather than implementing that in your API or cron code, [OCI can take care of notifying you](https://github.com/GaryHostt/OCI_DevOps/blob/master/Lab100.md).
@@ -40,7 +42,6 @@ Rather than implementing that in your API or cron code, [OCI can take care of no
 
 implement:
 ci/cd
-cron container, repo, link
 
 Workshop Roadmap:
 Part 2: Data catalog & data science - per pap not
