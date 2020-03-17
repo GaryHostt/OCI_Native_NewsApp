@@ -163,6 +163,8 @@ I can also query the CSV files stored in object storage from my ATP database wit
 
 The gold-standard cloud native app for OCI is of course, [MuShop](https://github.com/oracle-quickstart/oci-cloudnative).
 
+[Deploying elsewhere and using Travis for CI/CD](https://sweetcode.io/flask-app-github-travis-heroku/)
+
 # Life after Cloud
 
 <p align="center">
