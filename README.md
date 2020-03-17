@@ -149,6 +149,8 @@ I also use data catalog to record data locataions other projects I've made, such
 
 Click here to get started with [Data Catalog](https://docs.cloud.oracle.com/en-us/iaas/data-catalog/using/index.htm).
 
+View this slide deck to understand the business value of [data catalog](https://static.rainfocus.com/oracle/oow19/sess/1554312265193001yTvE/PF/PRO4988_OCI_Data_Catalog_Final_SRC_1568935778222001omuG.pdf).
+
 I can also query the CSV files stored in object storage from my ATP database with an [external table](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/query-external-data.html#GUID-72DC8BB6-5245-4262-A100-C35A2E553F70).
 
 # Troubleshooting
