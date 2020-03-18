@@ -180,6 +180,8 @@ The gold-standard cloud native app for OCI is of course, [MuShop](https://github
 
 [Deploying elsewhere and using Travis for CI/CD](https://sweetcode.io/flask-app-github-travis-heroku/)
 
+[Workshop: Oracle’s Cloud Data Platform: Autonomous-Driven & AI-Infused](https://austindatamanagement.github.io/oracle-cloud-data-platform-workshop/?lab=workshop-overview)
+
 # Life after Cloud
 
 <p align="center">
