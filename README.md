@@ -30,19 +30,13 @@ Rather than implementing that in your API or cron code, [OCI can take care of no
 
 # Outline & ToDo List
 
-0: Flask API Containerization
-
-1: upload containers to OCIR [verify directions]
-
-2: create k8 cluster & deploy pod [create directions]
-
-3: put API behind APIGW [link][screen if add auth]
+put API behind APIGW [link](https://docs.cloud.oracle.com/en-us/iaas/Content/APIGateway/Tasks/apigatewayaddingauthzauthn.htm)
 
 implement:
 ci/cd w/ travis
 
 Workshop Roadmap:
-Part 2: data science - per pap not
+Part 2: data science 
 
 # Deployment
 
