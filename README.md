@@ -38,18 +38,11 @@ Rather than implementing that in your API or cron code, [OCI can take care of no
 
 3: put API behind APIGW [link][screen if add auth]
 
-4: put Health check on APIGW [screen]
-
 implement:
-ci/cd
+ci/cd w/ travis
 
 Workshop Roadmap:
-Part 2: Data catalog & data science - per pap not
-
-Far road map:
-
-Part X: deploy on compute
-diff md
+Part 2: data science - per pap not
 
 # Deployment
 
@@ -154,6 +147,26 @@ View this slide deck to understand the business value of [data catalog](https://
 I can also query the CSV files stored in object storage from my ATP database with an [external table](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/query-external-data.html#GUID-72DC8BB6-5245-4262-A100-C35A2E553F70).
 
 I can also [load this data directly into the Autonomous Database from Object storage](http://cloud-blogs.com/oracle-cloud/oracle-cloud-iaas/comprehensive-blog-on-autonomous-data-warehouse-and-analytics-cloud/04-load-data-into-oci-object-storage-and-import-that-data-into-autonomous-data-warehouse/).
+
+# Step 3: Putting a health check on the API
+
+[Health check documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/HealthChecks/Concepts/healthchecks.htm)
+
+Now I want to create an alarm to notify me if my API is down, because that means I won't be getting my CSVs. Currently when an object is created, an OCI event sends me an email, but I'd rather just get an email if my API is down.
+
+1
+
+Navigate to health checks.
+
+2
+
+Create a health check.
+
+3
+
+
+
+Next I will add an authentication policy with API Gateway.
 
 # Administration
 
